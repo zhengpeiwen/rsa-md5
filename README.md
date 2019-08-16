@@ -202,5 +202,18 @@ Vue.prototype.decrypt1 = function (signData) {
 }
 ```
 
-## 4、相关链接
+## 4、md5
+
+使用方法
+
+（1）安装依赖 npm install md5
+
+（2）main.js引入 import md5 from 'js-md5'
+
+（3）Vue.prototype.$md5 = md5
+
+（4）let data = this.$md5(this.password)
+
+
+## 5、相关链接
 [RSA加密、解密、签名、验签的原理及方法](https://www.cnblogs.com/pcheng/p/9629621.html)
