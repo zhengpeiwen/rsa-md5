@@ -43,7 +43,7 @@ RSA签名的过程如下：
 ### RSA代码
  
  &emsp;&emsp;我列举了两种不同引用的RSA加密加签方法。jsrsasign  jsencrypt
-+1.jsrsasign
+ + 1.jsrsasign
 ```javascript
 Vue.prototype.signString = function (signData) {
   // 私钥加签   '-----BEGIN PRIVATE KEY-----这里是私钥-----END PRIVATE KEY-----'
