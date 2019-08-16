@@ -40,7 +40,7 @@ RSA签名的过程如下：
   
 **总结：公钥加密、私钥解密、私钥签名、公钥验签。**
 
-## RSA代码
+## 3、RSA代码
  
  &emsp;&emsp;我列举了两种不同引用的RSA加密加签方法。(jsrsasign、jsencrypt)
  
@@ -201,3 +201,6 @@ Vue.prototype.decrypt1 = function (signData) {
   return dec;
 }
 ```
+
+## 4、相关链接
+[RSA加密、解密、签名、验签的原理及方法](https://www.cnblogs.com/pcheng/p/9629621.html)
