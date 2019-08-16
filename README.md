@@ -43,6 +43,7 @@ RSA签名的过程如下：
 ## RSA代码
  
  &emsp;&emsp;我列举了两种不同引用的RSA加密加签方法。(jsrsasign、jsencrypt)
+ **注：无论是加签验签还是加密解密传参必须是字符串。
  
 ### 1.jsrsasign
  
