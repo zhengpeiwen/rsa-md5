@@ -46,7 +46,7 @@ RSA签名的过程如下：
  
   &emsp;&emsp;**注：无论是加签验签还是加密解密传参必须是字符串。**
  
-### 1.jsrsasign
+### 1、jsrsasign
  
  （1）npm install jsrsasign 查询文档了解与Java兼容
  
@@ -122,7 +122,7 @@ Vue.prototype.decrypt = function (signData) {
   return dec;
 }
 ```
-### jsencrypt
+### 2、jsencrypt
 
 （1）npm install jsencrypt 查询文档了解与Java不兼容
 
