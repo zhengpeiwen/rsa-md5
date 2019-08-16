@@ -40,3 +40,32 @@ RSA签名的过程如下：
   
 **总结：公钥加密、私钥解密、私钥签名、公钥验签。**
 
+### 代码
+
+```
+Vue.prototype.signString = function (signData) {
+  // 私钥加签   '-----BEGIN PRIVATE KEY-----这里是私钥-----END PRIVATE KEY-----'
+  let privateKey = "-----BEGIN PRIVATE KEY-----" +
+    "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAIdPYU5M9/i/0o"
+    + "Vj+gNsGyBh9UyjwDIR5QaVirjXoUahYNIBkk8ON4ieZ+GnXqgqkTnWj0QDlLG88Vtt"
+    + "PZ65he/g+9CgliZcaoCrzXbnIKNQQN/BniwlBHPxh5mlIOwLcD6wknvrjn+b+9Oi1kwh"
+    + "Xz1TzGjRFU/xKW389NqMZ1YrAgMBAAECgYAuF89o8fVC6m1XfUAsrEXtWRFLwz"
+    + "h0lf3zqTtxThslSVIHF/v0LD6krnlquC4ZkS6ZikqRe7rKdTeu0l68VCyYkt71mdNa+dZV"
+    + "O+xvi6m/+Qr+9YUtGu0bGwees/XfUV6oouwFdrbDkA1mVva/IWH9WWcyAUxWOBf"
+    + "vtrLB2tN42QJBANzETldhhhb67vrCWVE0TiVILS+rq7faHolXPjRrWHX/ArWvvkPwKn"
+    + "XPNqbNqAZjRWA9aPDQh7nwCU26f6bUJk8CQQCc56LX1/mqXVAY+9kAJlY2tskP"
+    + "97kyvR8zenij1XlyoP5/vAMxh3D+NlsLl+twnkCLVD/j9QX+qtaUHVlI4vdlAkBLAT8EnR"
+    + "OrlxG+jG1AE59BN2ZyvcaXrjmVu9hcguQJItzO0ai4+E3UvNP6lAC0OuIFMpgGyTJz"
+    + "z8O5btWT3pwtAkAIVYFfx5f6RZSQjyf6iw6/Pzw0veq3WDZFDLdFtHwL66M486qTw"
+    + "ebticOSPRKDW9R/0gzGtegIm9hj658ncO7FAkEAggS+JU62iNHJhSw277CYNvlaiM"
+    + "pg4ZKVwMtzfvqv3TMHbCqfCBxnuEspqWLatSFJUPGctce8POhDWjvxiTTHig=="
+    + "-----END PRIVATE KEY-----";
+  // 与后端约定好算法 SHA1withRSA  
+  let sig = new jsrsasign.KJUR.crypto.Signature({ "alg": "SHA1withRSA", "prov": "cryptojs/jsrsa", "prvkeypem": privateKey });// 初始化的对象 设置好加签或验签的算法和私钥
+  let hashAlg = 'sha1'; // 设置sha1
+  let sign = sig.signString(signData, hashAlg); // 加签 使用字符串对符号执行最终更新，然后将所有数据更新的签名字节作为16进制字符串返回
+  sign = jsrsasign.hextob64(sign); // 将16进制转化为base64
+  return sign;
+}
+```
+
