@@ -40,15 +40,17 @@ RSA签名的过程如下：
   
 **总结：公钥加密、私钥解密、私钥签名、公钥验签。**
 
-### RSA代码
+## RSA代码
  
  &emsp;&emsp;我列举了两种不同引用的RSA加密加签方法。(jsrsasign、jsencrypt)
  
- + **1.jsrsasign**
+### 1.jsrsasign
  
  （1）npm install jsrsasign 查询文档了解与Java兼容
  （2）main.js 引入 import jsrsasign from ‘jsrsasign’
- 
+
+#### 加签
+
 ```javascript
 Vue.prototype.signString = function (signData) {
   // 私钥加签   '-----BEGIN PRIVATE KEY-----这里是私钥-----END PRIVATE KEY-----'
@@ -63,6 +65,9 @@ Vue.prototype.signString = function (signData) {
   return sign;
 }
 ```
+
+#### 验签
+
 ```javascript
 Vue.prototype.verify = function (signData, data) {
   // signData: 加签的数据
@@ -80,6 +85,8 @@ Vue.prototype.verify = function (signData, data) {
 }
 ```
 
+#### 加密
+
 ```javascript
 Vue.prototype.encrypt = function (signData) {
   // 加密数据 signData
@@ -93,6 +100,9 @@ Vue.prototype.encrypt = function (signData) {
   return enc;
 }
 ```
+
+#### 解密
+
 ```javascript
 Vue.prototype.decrypt = function (signData) {
   //  解密数据 signData
@@ -107,13 +117,15 @@ Vue.prototype.decrypt = function (signData) {
   return dec;
 }
 ```
-+ **jsencrypt**
+### jsencrypt
 
-（1）npm install jsencrypt Java不兼容
+（1）npm install jsencrypt 查询文档了解与Java不兼容
 （2）main.js 引入 import jsencrypt from ‘jsencrypt’
 （3）npm install crypto-js
 （4）main.js 引入 import crypto from ‘crypto-js’
 （5）加密解密不需要（3）（4）步，只有加签验签4步都需要。
+
+#### 加签
 
 ```javascript
 Vue.prototype.signString1 = function (signData) {
@@ -129,6 +141,8 @@ Vue.prototype.signString1 = function (signData) {
 }
 ```
 
+#### 验签
+
 ```javascript
 Vue.prototype.verify1 = function (signData, data) {
   let publicKey = "-----BEGIN PUBLIC KEY-----" +
@@ -141,6 +155,8 @@ Vue.prototype.verify1 = function (signData, data) {
   return sign;
 }
 ```
+
+#### 加密
 
 ```javascript
 Vue.prototype.encrypt1 = function (signData) {
@@ -156,6 +172,8 @@ Vue.prototype.encrypt1 = function (signData) {
   return enc;
 }
 ```
+
+#### 解密
 
 ```javascript
 Vue.prototype.decrypt1 = function (signData) {
