@@ -42,8 +42,13 @@ RSA签名的过程如下：
 
 ### RSA代码
  
- &emsp;&emsp;我列举了两种不同引用的RSA加密加签方法。jsrsasign  jsencrypt
- + 1.jsrsasign
+ &emsp;&emsp;我列举了两种不同引用的RSA加密加签方法。(jsrsasign、jsencrypt)
+ 
+ + **1.jsrsasign**
+ 
+ （1）npm install jsrsasign 查询文档了解与Java兼容
+ （2）main.js 引入 import jsrsasign from ‘jsrsasign’
+ 
 ```javascript
 Vue.prototype.signString = function (signData) {
   // 私钥加签   '-----BEGIN PRIVATE KEY-----这里是私钥-----END PRIVATE KEY-----'
@@ -102,6 +107,13 @@ Vue.prototype.decrypt = function (signData) {
   return dec;
 }
 ```
++ **jsencrypt**
+
+（1）npm install jsencrypt Java不兼容
+（2）main.js 引入 import jsencrypt from ‘jsencrypt’
+（3）npm install crypto-js
+（4）main.js 引入 import crypto from ‘crypto-js’
+（5）加密解密不需要（3）（4）步，只有加签验签4步都需要。
 
 ```javascript
 Vue.prototype.signString1 = function (signData) {
