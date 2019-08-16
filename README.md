@@ -48,8 +48,8 @@ RSA签名的过程如下：
 Vue.prototype.signString = function (signData) {
   // 私钥加签   '-----BEGIN PRIVATE KEY-----这里是私钥-----END PRIVATE KEY-----'
   let privateKey = "-----BEGIN PRIVATE KEY-----" +
-    "你的私钥"
-    + "-----END PRIVATE KEY-----";
+  "你的私钥"
+  + "-----END PRIVATE KEY-----";
   // 与后端约定好算法 SHA1withRSA  
   let sig = new jsrsasign.KJUR.crypto.Signature({ "alg": "SHA1withRSA", "prov": "cryptojs/jsrsa", "prvkeypem": privateKey });// 初始化的对象 设置好加签或验签的算法和私钥
   let hashAlg = 'sha1'; // 设置sha1
@@ -64,8 +64,8 @@ Vue.prototype.verify = function (signData, data) {
   // data: 加签之后得到的签文
   // 公钥验签  '-----BEGIN PUBLIC KEY-----这里是公钥-----END PUBLIC KEY-----'
   let publicKey = "-----BEGIN PUBLIC KEY-----" +
-    "你的公钥"
-    + "-----END PUBLIC KEY-----";
+  "你的公钥"
+  + "-----END PUBLIC KEY-----";
   // 与加签算法一致 SHA1withRSA 
   let sig = new jsrsasign.KJUR.crypto.Signature({ "alg": "SHA1withRSA", "prov": "cryptojs/jsrsa", "prvkeypem": publicKey }); // 初始化的对象 设置好加签或验签的算法和公钥
   sig.updateString(signData); // 更新要由十六进制字符串签名或验证数据
@@ -80,8 +80,8 @@ Vue.prototype.encrypt = function (signData) {
   // 加密数据 signData
   // 公钥加密
   let publicKey = "-----BEGIN PUBLIC KEY-----" +
-    "你的公钥"
-    + "-----END PUBLIC KEY-----";
+  "你的公钥"
+  + "-----END PUBLIC KEY-----";
   let pub = jsrsasign.KEYUTIL.getKey(publicKey); // 获取公钥
   let enc = jsrsasign.KJUR.crypto.Cipher.encrypt(signData, pub); // 加密
   enc = jsrsasign.hextob64(enc); // 将16进制转化为base64
@@ -120,8 +120,8 @@ Vue.prototype.signString1 = function (signData) {
 ```javascript
 Vue.prototype.verify1 = function (signData, data) {
   let publicKey = "-----BEGIN PUBLIC KEY-----" +
-   "你的公钥"
-    + "-----END PUBLIC KEY-----";
+  "你的公钥"
+  + "-----END PUBLIC KEY-----";
 
   let sig = new JSEncrypt(); // 初始化对象
   sig.setPublicKey(publicKey); // 获取公钥
@@ -135,8 +135,8 @@ Vue.prototype.encrypt1 = function (signData) {
   // 加密数据 signData
   // 公钥加密
   let publicKey = "-----BEGIN PUBLIC KEY-----" +
-    "你的公钥"
-    + "-----END PUBLIC KEY-----";
+  "你的公钥"
+  + "-----END PUBLIC KEY-----";
   let encrypt = new JSEncrypt();  // 初始化对象
   encrypt.setPublicKey(publicKey); // 获取公钥
   let enc = encrypt.encrypt(signData); // 加密
