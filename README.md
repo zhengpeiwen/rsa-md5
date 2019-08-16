@@ -42,7 +42,7 @@ RSA签名的过程如下：
 
 ### 代码
 
-```(vue)
+```(javascript)
 Vue.prototype.signString = function (signData) {
   // 私钥加签   '-----BEGIN PRIVATE KEY-----这里是私钥-----END PRIVATE KEY-----'
   let privateKey = "-----BEGIN PRIVATE KEY-----" +
