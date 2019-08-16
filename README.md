@@ -47,7 +47,9 @@ RSA签名的过程如下：
 ### 1.jsrsasign
  
  （1）npm install jsrsasign 查询文档了解与Java兼容
+ 
  （2）main.js 引入 import jsrsasign from ‘jsrsasign’
+ 
 
 #### 加签
 
@@ -120,9 +122,13 @@ Vue.prototype.decrypt = function (signData) {
 ### jsencrypt
 
 （1）npm install jsencrypt 查询文档了解与Java不兼容
+
 （2）main.js 引入 import jsencrypt from ‘jsencrypt’
+
 （3）npm install crypto-js
+
 （4）main.js 引入 import crypto from ‘crypto-js’
+
 （5）加密解密不需要（3）（4）步，只有加签验签4步都需要。
 
 #### 加签
